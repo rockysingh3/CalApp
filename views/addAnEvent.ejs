@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="CSS/main.css">
+</head>
+<body class="body">
+
+<!-- form to save the events  -->
+<div class="container">
+    <div class="row">
+        <h1 style="text-align: center;">Create a new Event</h1>
+        <div style="width: 30%; margin: 35px auto;">
+            <!--The post that lets you enter new campgrounds-->
+            <!--The body-parser uses the name value to to get the data -->
+            <form action="/main" method="POST">
+                <div class="form-group">
+                     <input class="form-control" type="text" name="title" placeholder="Title of the event"></input>
+                </div>
+                <div class="form-group">
+                    <input class="form-control"  type="text" name="location" placeholder="Enter the location of the event"></input>
+                </div>
+                <div class="form-group">
+                    <input class="form-control"  type="text" name="notes" placeholder="description or notes about the event"></input>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block">Submit</button>
+                </div>
+            </form>
+            <!-- <a href="/campgrounds">Go Back</a> -->
+            <!--end of the style div-->
+        </div>
+        <!--End of the row-->
+    </div>
+    <!--The end of the container-->
+</div>
+
+</body>
+</html>

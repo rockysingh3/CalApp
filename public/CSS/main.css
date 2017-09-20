@@ -1,0 +1,111 @@
+body {
+    font-family: Verdana, sans-serif;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.header {
+    padding: 70px 25px;
+    width: 100%;
+    background: #266e75;
+}
+
+.LeftandRightButton {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+#prev {
+    float: left;
+    padding-top: 10px;
+    color: white;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+#next {
+    text-align: right;
+    padding-top: 10px;
+    color: white;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+button {
+    background-color: white;
+    color: #266e75;
+}
+
+.MonthandYear {
+    color: #41f4a3;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-align: center;
+}
+
+
+/*this span is for the year */
+
+span {
+    font-size: 18px;
+}
+
+.weekdays {
+    margin: 0;
+    padding: 10px 0;
+    background-color: #ddd;
+    padding-bottom: 20px;
+    list-style-type: none;
+}
+
+.weekdays li {
+    display: inline-block;
+    width: 13.6%;
+    color: #666;
+    text-align: center;
+}
+
+#days {
+    padding: 10px 0;
+    background: #eee;
+    margin: 0;
+}
+
+#days:hover {
+    color: red;
+}
+
+#days li {
+    list-style-type: none;
+    display: inline-block;
+    width: 13.6%;
+    text-align: center;
+    margin-bottom: 5px;
+    font-size: 12px;
+    color: #777;
+    padding-bottom: 20px;
+}
+
+.Event {
+    float: right;
+    margin-right: 30px;
+    color: #777;
+    font-size: 15px;
+}
+
+#Event {
+    color: #41f4a3;
+}
+
+
+/*everything blow this for the addAnEvent page */
+
+.body {
+    background-color: #a8c621;
+}

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calendar App</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="CSS/main.css">
+
+
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div class="container">
+
+	<div class="header">
+
+  <ul class="LeftandRightButton">
+
+    <li id="prev">
+    <!-- this is the previous button, when pressed should go back one month -->
+    <button class="btn btn-default" type="submit">Previous</button></li>
+
+    <li id="next">
+
+    <!-- This is the next button, when pressed should go on the next month  -->
+    <button class="btn btn-default" type="submit">Next</button></li>
+
+    <div>
+        <li class="MonthandYear">
+        <div id="month"><br></div>
+
+      <span>
+        <div id="year"> </div>
+      </span>
+    </li>
+		<div class="Event">
+			<a id="Event" href="/addAnEvent">Add an Event</a>
+		</div>
+    </div>
+  </ul>
+</div>
+
+
+
+<ul class="weekdays">
+  <li>Su</li>
+  <li>Mo</li>
+  <li>Tu</li>
+  <li>We</li>
+  <li>Th</li>
+  <li>Fr</li>
+  <li>Sa</li>
+</ul>
+
+<!-- this is for the days of the month -->
+<ul id="days">
+</ul>
+
+<div>
+<% newEvent.forEach(function(newEvent){ %>
+<div>
+  <h4 style="color: #41f4a3;">Title of the event</h4>
+         <%= newEvent.title %> </h4>
+</div>
+<div>
+  <h4 style="color: #41f4a3;">Location of the Event</h4>
+          <%= newEvent.location %> </h4>
+</div>
+<div>
+  <h4 style="color: #41f4a3;">Notes about the event</h4>
+          <%= newEvent.notes %> 
+</div>
+<% }) %>
+</div>
+
+
+
+</div>
+
+   <script type="text/javascript">
+          let Calendar = <%- JSON.stringify(Calendar) %>;
+          let CurrentYear = <%- JSON.stringify(CurrentYear) %>;
+          let CurrentMonthOfTheYear = <%- JSON.stringify(CurrentMonthOfTheYear) %>;
+
+
+
+          // getting the html elements
+          let months = document.getElementById('month');
+          let year = document.getElementById('year');
+
+
+          // year.innerHTML = CurrentYear;
+          // displaying the current year
+          months.innerHTML = Calendar[CurrentMonthOfTheYear].month;
+          year.innerHTML = CurrentYear;
+          let index = CurrentMonthOfTheYear;
+
+
+          // Computes days in a month
+          function daysInMonth(month, year){
+            return new Date(year, month, 0).getDate();
+          }
+
+
+          var n = daysInMonth(CurrentMonthOfTheYear, CurrentYear);
+          for(var j=1; j <= n; j++) {
+              $('#days').append('<li> ' + j + '</li>');
+            }
+
+            // go forward a month
+          $('#next').click(function(){
+              // console.log(Calendar[index].month);
+
+              // console.log(index);
+              // index++;
+              // console.log(index);
+              // var CMOTY = CurrentMonthOfTheYear;
+              // CMOTY++;
+              months.innerHTML = Calendar[index].month;
+              index++;
+
+            // Months resets back to jan and the year goes up by 1
+            if(index == Calendar[11].month){
+              index = 0;
+              CurrentYear++;
+              months.innerHTML = Calendar[index].month;
+              year.innerHTML = CurrentYear;
+
+            }
+
+            // var n = Calendar[index].days;
+            $('#days').empty();
+            for(var i=1; i <= daysInMonth(index, CurrentYear); i++){
+              // console.log(Calendar[index].days);
+              $('#days').append('<li> ' + i + ' </li>');
+            }
+
+            // index++;
+
+          });
+
+
+          // go back a month
+          $('#prev').click(function(){
+            // console.log(Calendar[index].month);
+
+
+            // Months resets to Dec and the year goes down by one
+            if(index < 0){
+              index = 11;
+              CurrentYear--;
+              months.innerHTML = Calendar[index].month;
+              year.innerHTML = CurrentYear;
+            }
+
+
+            // days in each month
+            // this emptys the li in #days so you can rewrite them with the right months
+            $('#days').empty();
+            for(var i=1; i <= daysInMonth(index, CurrentYear); i++){
+              $('#days').append('<li> ' + i + ' </li>');
+            }
+
+            index--;
+            months.innerHTML = Calendar[index].month;
+
+          });
+
+      
+
+
+
+        </script>
+
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="/JS.js"></script>
+
+
+</body>
+</html>
