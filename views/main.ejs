@@ -60,6 +60,8 @@
 <ul id="days">
 </ul>
 
+
+<%# this is for the events blow the calendar%>
 <div>
 <% newEvent.forEach(function(newEvent){ %>
 <div>
@@ -72,7 +74,7 @@
 </div>
 <div>
   <h4 style="color: #41f4a3;">Notes about the event</h4>
-          <%= newEvent.notes %> 
+          <%= newEvent.notes %>
 </div>
 <% }) %>
 </div>
@@ -105,11 +107,16 @@
             return new Date(year, month, 0).getDate();
           }
 
-
+					// appends each day into the ul for the days
           var n = daysInMonth(CurrentMonthOfTheYear, CurrentYear);
           for(var j=1; j <= n; j++) {
-              $('#days').append('<li> ' + j + '</li>');
-            }
+              $('#days').append('<li style="cursor:pointer" id="li_day"> ' + j + '</li>');
+							$('#li_day').on('click', function(){
+								alert('this is where the file needs to render');
+							});
+          }
+
+
 
             // go forward a month
           $('#next').click(function(){
@@ -170,7 +177,7 @@
 
           });
 
-      
+
 
 
 

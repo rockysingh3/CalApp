@@ -73,6 +73,22 @@ var CurrentMonthOfTheYear = moment().month();
 
 
 
+
+
+
+
+function daysInMonth(month, year){
+	return new Date(year, month, 0).getDate();
+}
+
+// appends each day into the ul for the days
+var n = daysInMonth(CurrentMonthOfTheYear, CurrentYear);
+
+
+
+
+
+
 // all the routes
 // main route
 app.get("/", function(req, res){
@@ -85,7 +101,8 @@ app.get("/", function(req, res){
 			Calendar: Calendar,
 			CurrentYear: CurrentYear,
 			CurrentMonthOfTheYear: CurrentMonthOfTheYear,
-			newEvent: newEvent
+			newEvent: newEvent,
+			n: n
 			});
 		}
 	});
